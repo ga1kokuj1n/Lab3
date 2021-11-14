@@ -10,6 +10,7 @@ namespace Lab3._2
 	{
 		static void Main(string[] args)
 		{
+            Console.WriteLine("Эта программа генрирует массив цифр 7х7 и поворачивает на 90 градусов вправо\n");
 			Random rand = new Random();
 			byte[,] arr = new byte[7, 7];
 			Console.WriteLine("Получившийся массив:\n");
