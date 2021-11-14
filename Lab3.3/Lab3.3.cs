@@ -59,31 +59,31 @@ namespace Lab3._3
 			Random rand = new Random();
 			byte[] arr = new byte[n];
 			ulong i = 0;
-            Console.WriteLine("\nПолучившийся массив:\n");
+			Console.WriteLine("\nПолучившийся массив:\n");
 			foreach (byte o in arr)
-            {
+			{
 				arr[i] = (byte)rand.Next(100);
-                Console.Write(arr[i] + (i + 1 % 10 == 0 ? "\n" : "\t"));
+				Console.Write(arr[i] + (i + 1 % 10 == 0 ? "\n" : "\t"));
 				i++;
-            }
+			}
 
 			while (k >= n)
 				k -= n;
 			
 			for (ulong j = 0; j < k; j++)
-            {
+			{
 				byte c = arr[0];
 				for (ulong l = 1; l < n; l++)
-                {
+				{
 					arr[l - 1] = arr[l];
-                }
+				}
 				arr[n - 1] = c;
-            }
+			}
 
-            Console.WriteLine("\n\nМассив после сдвига:\n");
+			Console.WriteLine("\n\nМассив после сдвига:\n");
 			i = 0;
 			foreach (byte o in arr)
-            {
+			{
 				Console.Write(arr[i] + (i + 1 % 10 == 0 ? "\n" : "\t"));
 				i++;
 			}
