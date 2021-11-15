@@ -10,7 +10,7 @@ namespace Lab3.Indiv2
 	{
 		static void Main(string[] args)
 		{
-
+			
 		}
 	}
 }
