@@ -12,48 +12,54 @@ namespace Lab3._3
 		{
 			Console.WriteLine("Эта программа генерирует массив n чисел и циклично сдвигает его на k элементов вправо\n");
 			ulong n = 0, k = 0;
-		t1:
-			Console.Write("Введите n: ");
-			try
-			{
-				n = ulong.Parse(Console.ReadLine());
-				if (n == 0)
+			while (true)
+            {
+				Console.Write("Введите n: ");
+				try
+				{
+					n = ulong.Parse(Console.ReadLine());
+					if (n == 0)
+					{
+						Console.WriteLine("Пожалуйста, введите положительное целое число");
+						continue;
+					}
+				}
+				catch (FormatException)
 				{
 					Console.WriteLine("Пожалуйста, введите положительное целое число");
-					goto t1;
+					continue;
 				}
-			}
-			catch (FormatException)
-			{
-				Console.WriteLine("Пожалуйста, введите положительное целое число");
-				goto t1;
-			}
-			catch (OverflowException)
-			{
-				Console.WriteLine("Это число слишком большое, пожалуйста, используйте другое");
-				goto t1;
-			}
-		t2:
-			Console.Write("Введите k: ");
-			try
-			{
-				k = ulong.Parse(Console.ReadLine());
-				if (k == 0)
+				catch (OverflowException)
+				{
+					Console.WriteLine("Это число слишком большое, пожалуйста, используйте другое");
+					continue;
+				}
+				break;
+			}// n = ...
+			while (true)
+            {
+				Console.Write("Введите k: ");
+				try
+				{
+					k = ulong.Parse(Console.ReadLine());
+					if (k == 0)
+					{
+						Console.WriteLine("Пожалуйста, введите положительное целое число");
+						continue;
+					}
+				}
+				catch (FormatException)
 				{
 					Console.WriteLine("Пожалуйста, введите положительное целое число");
-					goto t1;
+					continue;
 				}
-			}
-			catch (FormatException)
-			{
-				Console.WriteLine("Пожалуйста, введите положительное целое число");
-				goto t1;
-			}
-			catch (OverflowException)
-			{
-				Console.WriteLine("Это число слишком большое, пожалуйста, используйте другое");
-				goto t1;
-			}
+				catch (OverflowException)
+				{
+					Console.WriteLine("Это число слишком большое, пожалуйста, используйте другое");
+					continue;
+				}
+				break;
+			}// k = ...
 
 
 			Random rand = new Random();

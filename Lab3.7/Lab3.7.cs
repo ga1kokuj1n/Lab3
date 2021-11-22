@@ -21,26 +21,29 @@ namespace Lab3._7
 			}
 
 			ulong n = 0;
-			t1:
-			Console.Write("Эта программа рекурсивно вычисляет n-ный член ряда Фибоначчи\n\nВведите n: ");
-			try
-			{
-				n = ulong.Parse(Console.ReadLine());
-				if (n == 0)
+			while (true)
+            {
+				Console.Write("Эта программа рекурсивно вычисляет n-ный член ряда Фибоначчи\n\nВведите n: ");
+				try
+				{
+					n = ulong.Parse(Console.ReadLine());
+					if (n == 0)
+					{
+						Console.WriteLine("Пожалуйста, введите положительное целое число");
+						continue;
+					}
+				}
+				catch (FormatException)
 				{
 					Console.WriteLine("Пожалуйста, введите положительное целое число");
-					goto t1;
+					continue;
 				}
-			}
-			catch (FormatException)
-			{
-				Console.WriteLine("Пожалуйста, введите положительное целое число");
-				goto t1;
-			}
-			catch (OverflowException)
-			{
-				Console.WriteLine("Это число слишком большое, пожалуйста, используйте другое");
-				goto t1;
+				catch (OverflowException)
+				{
+					Console.WriteLine("Это число слишком большое, пожалуйста, используйте другое");
+					continue;
+				}
+				break;
 			}
 
 			try

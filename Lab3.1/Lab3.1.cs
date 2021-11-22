@@ -12,26 +12,31 @@ namespace Lab3._1
 		{
 			Console.WriteLine("Эта программа генерирует случайный массив чисел от -35 до 40, а затем выводит неотрицательные значения в обратном порядке\n");
 			ulong n = 0;
-		t1:
-			Console.Write("Введите кол-во элементов массива: ");
-			try
-			{
-				n = ulong.Parse(Console.ReadLine());
-				if (n == 0)
+			
+			while (true)
+            {
+				Console.Write("Введите кол-во элементов массива: ");
+				try
+				{
+					n = ulong.Parse(Console.ReadLine());
+					if (n == 0)
+					{
+						Console.WriteLine("Пожалуйста, введите положительное целое число!");
+						continue;
+					}
+				}
+				catch (FormatException)
 				{
 					Console.WriteLine("Пожалуйста, введите положительное целое число!");
-					goto t1;
+					continue;
 				}
-			}
-			catch (FormatException)
-			{
-				Console.WriteLine("Пожалуйста, введите положительное целое число!");
-				goto t1;
-			}
-			catch (OverflowException)
-			{
-				Console.WriteLine("Это число слишком большое, пожалуйста, используйте другое");
-			}
+				catch (OverflowException)
+				{
+					Console.WriteLine("Это число слишком большое, пожалуйста, используйте другое");
+					continue;
+				}
+				break;
+			}// n = ...
 
 			int[] arr = new int[n];
 			Random rand = new Random();
