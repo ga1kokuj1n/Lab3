@@ -34,9 +34,13 @@ namespace Lab3._5
 			for (byte i = 0; i < 5; i++)
 				for (byte j = 0; j < 5; j++)
 				{
-					ans[i, j] = a[i, j] * b[i, j];
-					Console.Write(ans[i, j] + (j == 4 ? "\n" : "\t"));
+					ans[i, j] = 0;
+					for (byte k = 0; k < 5; k++)
+						ans[i, j] += a[i, k] * b[k, j];
+					Console.Write($"{ans[i, j]:n2}" + (j == 4 ? "\n" : "\t"));
 				}
+
+			Console.ReadLine();
 		}
 	}
 }

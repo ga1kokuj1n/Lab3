@@ -89,6 +89,8 @@ namespace Lab3._4
 			for (byte i = 0; i < 3; i++)
 				for (byte j = 0; j < 3; j++)
 					Console.Write(aver[i, j] + (j == 2 ? "\n" : "\t"));
+
+			Console.ReadLine();
 		}
 	}
 }

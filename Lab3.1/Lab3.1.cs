@@ -57,6 +57,7 @@ namespace Lab3._1
 				i--;
 			}
 			Console.WriteLine("\b\b\0\0");
+			Console.ReadLine();
 		}
 	}
 }

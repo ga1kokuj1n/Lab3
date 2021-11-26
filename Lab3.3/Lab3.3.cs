@@ -13,16 +13,13 @@ namespace Lab3._3
 			Console.WriteLine("Эта программа генерирует массив n чисел и циклично сдвигает его на k элементов вправо\n");
 			ulong n = 0, k = 0;
 			while (true)
-            {
+			{
 				Console.Write("Введите n: ");
 				try
 				{
 					n = ulong.Parse(Console.ReadLine());
 					if (n == 0)
-					{
-						Console.WriteLine("Пожалуйста, введите положительное целое число");
-						continue;
-					}
+						throw new FormatException();
 				}
 				catch (FormatException)
 				{
@@ -36,8 +33,42 @@ namespace Lab3._3
 				}
 				break;
 			}// n = ...
+
+			double[] arr = new double[n];
+			Console.WriteLine("Введите элементы массива:");
+			for (ulong j = 0; j < n; j++)
+				while (true)
+				{
+					Console.Write($"[{j + 1}]: ");
+					try
+					{
+						arr[j] = double.Parse(Console.ReadLine());
+					}
+					catch (FormatException)
+					{
+						Console.WriteLine("Пожалуйста, введите положительное целое число");
+						continue;
+					}
+					catch (OverflowException)
+					{
+						Console.WriteLine("Это число слишком большое, пожалуйста, используйте другое");
+						continue;
+					}
+					break;
+				}// arr[i] = ...
+
+			Console.Clear();
+			int i = 0;
+			Console.WriteLine("\nПолучившийся массив:\n");
+			foreach (byte o in arr)
+			{
+				Console.Write(arr[i] + (i + 1 % 10 == 0 ? "\n" : "\t"));
+				i++;
+			}
+			Console.WriteLine("\n");
+
 			while (true)
-            {
+			{
 				Console.Write("Введите k: ");
 				try
 				{
@@ -61,24 +92,12 @@ namespace Lab3._3
 				break;
 			}// k = ...
 
-
-			Random rand = new Random();
-			byte[] arr = new byte[n];
-			ulong i = 0;
-			Console.WriteLine("\nПолучившийся массив:\n");
-			foreach (byte o in arr)
-			{
-				arr[i] = (byte)rand.Next(100);
-				Console.Write(arr[i] + (i + 1 % 10 == 0 ? "\n" : "\t"));
-				i++;
-			}
-
 			while (k >= n)
 				k -= n;
 			
 			for (ulong j = 0; j < k; j++)
 			{
-				byte c = arr[0];
+				double c = arr[0];
 				for (ulong l = 1; l < n; l++)
 				{
 					arr[l - 1] = arr[l];
@@ -94,6 +113,8 @@ namespace Lab3._3
 				i++;
 			}
 			Console.Write('\n');
+
+			Console.ReadLine();
 		}
 	}
 }

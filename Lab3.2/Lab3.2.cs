@@ -34,6 +34,8 @@ namespace Lab3._2
 			for (int i = 0; i < 7; i++)
 				for (int j = 0; j < 7; j++)
 					Console.Write(arr[i, j] + (j == 6 ? "\n" : " "));
+
+			Console.ReadLine();
 		}
 	}
 }

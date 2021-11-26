@@ -1,0 +1,6 @@
+C:\Users\ga1kokuj1n\source\repos\Labs\Lab3\Lab3.8\bin\Debug\Lab3.8.exe.config
+C:\Users\ga1kokuj1n\source\repos\Labs\Lab3\Lab3.8\bin\Debug\Lab3.8.exe
+C:\Users\ga1kokuj1n\source\repos\Labs\Lab3\Lab3.8\bin\Debug\Lab3.8.pdb
+C:\Users\ga1kokuj1n\source\repos\Labs\Lab3\Lab3.8\obj\Debug\Lab3.8.csproj.CoreCompileInputs.cache
+C:\Users\ga1kokuj1n\source\repos\Labs\Lab3\Lab3.8\obj\Debug\Lab3.8.exe
+C:\Users\ga1kokuj1n\source\repos\Labs\Lab3\Lab3.8\obj\Debug\Lab3.8.pdb
