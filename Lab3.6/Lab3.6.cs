@@ -54,16 +54,56 @@ namespace Lab3._6
 				}
 			}
 
-            Console.WriteLine("Сгенерирован массив:\n");
-			Random rand = new Random();
-			double[] arr = new double[10];
-			byte it = 0;
-			foreach(double o in arr)
-            {
-				arr[it] = (double)rand.Next(1000) / 10;
-				Console.Write(arr[it] + "; ");
-				it++;
-            }
+            Console.WriteLine("Эта программа принимает массив чисел и вычисляет сумму и мимимальный элемент итеративно и рекурсивно");
+			int n;
+			while (true)
+			{
+				Console.Write("Введите кол-ао элементов массива: ");
+				try
+				{
+					n = int.Parse(Console.ReadLine());
+					if (n < 1)
+						throw new FormatException();
+				}
+				catch (FormatException)
+				{
+					Console.WriteLine("Пожалуйста, введите натуральное число");
+					continue;
+				}
+				catch (OverflowException)
+				{
+					Console.WriteLine("Это число слишком большое, пожалуйста, используйте другое");
+					continue;
+				}
+				break;
+			}// n = ...
+
+			double[] arr = new double[n];
+			for (int i = 0; i < n; i++)
+				while (true)
+				{
+					Console.Write($"[{i + 1}]: ");
+					try
+					{
+						arr[i] = double.Parse(Console.ReadLine());
+					}
+					catch (FormatException)
+					{
+						Console.WriteLine("Пожалуйста, введите вещественное число");
+						continue;
+					}
+					catch (OverflowException)
+					{
+						Console.WriteLine("Это число слишком большое, пожалуйста, используйте другое");
+						continue;
+					}
+					break;
+				}// arr[i] = ...
+
+			Console.Clear();
+			Console.WriteLine("Ваш массив:");
+			for (int i = 0; i < n; i++)
+				Console.Write(arr[i] + ", ");
 			Console.WriteLine("\b\b\0\0");
 
 			Console.WriteLine($"\nСумма итерационно: {sumIterative(arr)}\nСумма рекурсивно: {sumRecursive(arr)}\nМинимальный элемент итерационно: {minIterative(arr)}\nМинимальный элемент рекурсивно: {minRecursive(arr)}");

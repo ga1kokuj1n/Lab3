@@ -94,7 +94,7 @@ namespace Lab3._8
 					Console.Write(A[i, j] + (j == n - 1 ? "\n" : "\t"));
 				}
 
-			Console.Write($"\nОпределитель: det A = {Det(A)}"\n);
+			Console.Write($"\nОпределитель: det A = {Det(A)}");
 		}
 	}
 }

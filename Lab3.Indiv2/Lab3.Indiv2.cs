@@ -10,30 +10,67 @@ namespace Lab3.Indiv2
 	{
 		static void Main(string[] args)
 		{
-			uint n;
-			t1:
-			Console.Write("Введите чётное кол-во элементов массива: ");
-			try
+			int n;
+			while (true)
 			{
-				n = uint.Parse(Console.ReadLine());
-				if(n == 0 || n % 2 != 0)
+				Console.Write("Введите ЧЁТНОЕ кол-во элементов массива: ");
+				try
+				{
+					n = int.Parse(Console.ReadLine());
+					if (n < 1 || n % 2 != 0)
+						throw new FormatException();
+				}
+				catch (FormatException)
 				{
 					Console.WriteLine("Пожалуйста, введите чётное натуральное число");
-					goto t1;
+					continue;
 				}
-			}
-			catch (FormatException)
+				catch (OverflowException)
+				{
+					Console.WriteLine("Это число слишком большое, пожалуйста, используйте другое");
+					continue;
+				}
+				break;
+			}// n = ...
+
+			float[] arr = new float[n];
+			Console.WriteLine("Введите элементы массива: ");
+			for (int i = 0; i < n; i++)
+				while (true)
+				{
+					Console.Write($"[{i + 1}]: ");
+					try
+					{
+						arr[i] = float.Parse(Console.ReadLine());
+					}
+					catch (FormatException)
+					{
+						Console.WriteLine("Пожалуйста, введите вещественное число");
+						continue;
+					}
+					catch (OverflowException)
+					{
+						Console.WriteLine("Это число слишком большое, пожалуйста, используйте другое");
+						continue;
+					}
+					break;
+				}// arr[i] = ...
+
+			bool isSeq = true;
+            for (int i = 1; i < n; i++)
+                if (arr[i] < arr[i - 1])
+                {
+					isSeq = false;
+					break;
+                }
+			if (isSeq)
             {
-				Console.WriteLine("Пожалуйста, введите чётное натуральное число");
-				goto t1;
-			}
-			catch (OverflowException)
+				Console.WriteLine("TRUE: массив - возрастающая последовательность!");
+            }
+            else
             {
-				Console.WriteLine("Это число слишком большое, пожалуйста, используйте другое");
-				goto t1;
+				Console.WriteLine("FALSE: массив - не возрастающая последовательность!");
 			}
-			int[] arr = new int[n];
-			
 		}
 	}
 }

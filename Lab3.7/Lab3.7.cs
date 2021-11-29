@@ -20,7 +20,7 @@ namespace Lab3._7
 					return Fibonacci(pos - 1) + Fibonacci(pos - 2);
 			}
 
-			ulong n = 0;
+			ulong n, ans;
 			while (true)
             {
 				Console.Write("Эта программа рекурсивно вычисляет n-ный член ряда Фибоначчи\n\nВведите n: ");
@@ -28,14 +28,12 @@ namespace Lab3._7
 				{
 					n = ulong.Parse(Console.ReadLine());
 					if (n == 0)
-					{
-						Console.WriteLine("Пожалуйста, введите положительное целое число");
-						continue;
-					}
+						throw new FormatException();
+					ans = Fibonacci(n);
 				}
 				catch (FormatException)
 				{
-					Console.WriteLine("Пожалуйста, введите положительное целое число");
+					Console.WriteLine("Пожалуйста, введите натуральное число");
 					continue;
 				}
 				catch (OverflowException)
@@ -46,15 +44,7 @@ namespace Lab3._7
 				break;
 			}
 
-			try
-			{
-				Console.WriteLine($"\nОтвет: {Fibonacci(n)}");
-			}
-			catch (OverflowException)
-			{
-				Console.WriteLine("Это число слишком большое, пожалуйста, используйте другое");
-				goto t1;
-			}
+			Console.WriteLine($"Ответ: {ans}");
 		}
 	}
 }
